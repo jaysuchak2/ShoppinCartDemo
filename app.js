@@ -1,9 +1,9 @@
 const express = require('express');
-var bodyParser = require("body-parser");
-var cors = require('cors');
+let bodyParser = require("body-parser");
+let cors = require('cors');
 const logger = require("morgan");
-var errorhandler = require('errorhandler');
-var notifier = require('node-notifier');
+let errorhandler = require('errorhandler');
+let notifier = require('node-notifier');
 const redis = require("redis");
 const cookieParser = require('cookie-parser');
 
@@ -47,16 +47,16 @@ if (process.env.NODE_ENV === 'development') {
 }
 //  Error notifier
 function errorNotification(err, str, req) {
-    var title = 'Error in ' + req.method + ' ' + req.url
+    let title = 'Error in ' + req.method + ' ' + req.url
 
     notifier.notify({
-        title: title,
+        title,
         message: str
     })
 }
 
 // configuration for cors
-var corsOptions = {
+let corsOptions = {
     origin: '*',
     // methods:'POST,PUT',
     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
